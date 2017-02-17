@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 public class Main2Activity extends AppCompatActivity {
 
+    // This is my Comment Parag
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
