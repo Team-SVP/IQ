@@ -13,7 +13,7 @@ import android.util.TypedValue;
 public class MainActivity extends AppCompatActivity {
 
     DatabaseHelper mydb;
-
+    //This is comment from Shyam
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
