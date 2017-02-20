@@ -1,8 +1,10 @@
 package com.example.cepl.myapplication;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,7 +23,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         mydb = new DatabaseHelper(this);
-
+        Cursor output = mydb.getData();
+        while (output.moveToNext()) {
+            Log.i("DB", output.getString(1));
+        }
 
         final Button button5 = (Button)findViewById(R.id.button5);
         button5.setOnClickListener(

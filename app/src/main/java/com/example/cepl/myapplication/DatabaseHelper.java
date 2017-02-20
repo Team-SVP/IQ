@@ -1,22 +1,24 @@
 package com.example.cepl.myapplication;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * Created by CEPL on 09-02-2017.
  */
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "svp2.db";
+    public static final String DATABASE_NAME = "svp.db";
     public static final String TABLE_NAME = "svp2_table";
     public static final String COL_1 = "ID";
     public static final String COL_2 = "NAME";
     public static final String COL_3 = "MOBILE_NO";
 
     public DatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, 1);
+        super(context, DATABASE_NAME, null, 2);
         SQLiteDatabase db = this.getWritableDatabase();
     }
 
@@ -47,4 +49,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
 
     }
+
+    public Cursor getData(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res = db.rawQuery("select * from sections", null);
+        return res;
+
+    }
+
 }
