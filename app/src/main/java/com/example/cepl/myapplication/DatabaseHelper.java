@@ -57,4 +57,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    public Cursor getSubSectionData(String sec_name){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res = db.rawQuery("select * from sub_section where SECTION_ID =(select ID from sections where SECTION_NAME = \"" + sec_name + "\")", null);
+        return res;
+
+    }
+
 }
