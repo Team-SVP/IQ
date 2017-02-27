@@ -29,7 +29,7 @@ public class Main2Activity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         TextView textView22 = (TextView)findViewById(R.id.textView22);
-        textView22.setText("Hello SVP Team");
+        //textView22.setText("Hello SVP Team");
         textView22.setText(getIntent().getExtras().getString("Name"));
     }
 
