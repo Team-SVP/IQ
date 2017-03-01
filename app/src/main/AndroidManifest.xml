@@ -24,6 +24,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.cepl.myapplication.MainActivity" />
         </activity>
+        <activity
+            android:name=".Main3Activity"
+            android:label="@string/title_activity_main3"
+            android:parentActivityName=".Main2Activity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.cepl.myapplication.Main2Activity" />
+        </activity>
     </application>
 
 </manifest>

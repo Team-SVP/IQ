@@ -48,7 +48,11 @@ public class Main2Activity extends AppCompatActivity {
 
 
         mydb2 = new DatabaseHelper(this);
-        String sec_name = getIntent().getExtras().getString("Name");
+        //String sec_name = getIntent().getExtras().getString("Name");
+        Intent intent=this.getIntent();
+        String sec_name = "";
+        if(intent !=null)
+            sec_name = intent.getStringExtra("Name");
         Cursor output = mydb2.getSubSectionData(sec_name);
         int i = 0;
         while (output.moveToNext())
@@ -66,7 +70,7 @@ public class Main2Activity extends AppCompatActivity {
             btn1.setOnClickListener(new Button.OnClickListener() {
                 public void onClick(View v) {
                     String name = btn1.getText().toString();
-                    Intent intent = new Intent(Main2Activity.this, Main2Activity.class);
+                    Intent intent = new Intent(Main2Activity.this, Main3Activity.class);
                     intent.putExtra("Name", name);
                     startActivity(intent);
                 }
