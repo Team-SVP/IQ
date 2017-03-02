@@ -64,4 +64,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    public Cursor getQuestionData(String sec_name, String subsec_name){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res = db.rawQuery("SELECT P.*, H.OPTION1, H.OPTION2, H.OPTION3, H.OPTION4, H.QUESTION_ID FROM questions P INNER JOIN options H on (P.ID = H.QUESTION_ID) where SECTION_ID = (select ID from sections where SECTION_NAME= \"" + sec_name + "\") and SUB_SECTION_ID = (select ID from sub_section where SUB_SECTION_NAME= \"" + subsec_name + "\")", null);
+        return res;
+
+    }
+
+    public Cursor getAnswerData(String questionid){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res = db.rawQuery("select * from answers where QUESTION_ID= \"" + questionid + "\"", null);
+        return res;
+
+    }
+
 }

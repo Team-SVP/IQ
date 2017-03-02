@@ -94,4 +94,22 @@
         style="@style/Widget.AppCompat.AutoCompleteTextView"
         />
 
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/textViewAnswer"
+        android:layout_toStartOf="@+id/nextButton"
+        android:layout_alignRight="@+id/editText2"
+        android:layout_alignEnd="@+id/editText2"
+        android:layout_below="@+id/viewButton" />
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/textViewAnswerDesc"
+        android:layout_below="@+id/viewButton"
+        android:layout_toRightOf="@+id/radioGroup"
+        android:layout_toEndOf="@+id/radioGroup" />
+
 </RelativeLayout>
