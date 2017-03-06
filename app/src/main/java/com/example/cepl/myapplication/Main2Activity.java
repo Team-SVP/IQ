@@ -26,7 +26,7 @@ public class Main2Activity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,6 +35,8 @@ public class Main2Activity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        */
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //TextView textView22 = (TextView)findViewById(R.id.textView22);
@@ -51,6 +53,7 @@ public class Main2Activity extends AppCompatActivity {
         //String sec_name = getIntent().getExtras().getString("Name");
         Intent intent=this.getIntent();
         final String sec_name = intent.getStringExtra("Name");
+        setTitle(sec_name);
         Cursor output = mydb2.getSubSectionData(sec_name);
         int i = 0;
         while (output.moveToNext())
