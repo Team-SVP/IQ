@@ -68,7 +68,8 @@ public class MainActivity extends AppCompatActivity {
             btn.setId(i+1);
             btn.setText(output.getString(1));
             btn.setTextColor(Color.YELLOW);
-            btn.setBackgroundColor(Color.BLUE);
+            btn.setBackground(getResources().getDrawable(R.drawable.page1));
+            //btn.setBackgroundColor(Color.BLUE);
             btn.setLayoutParams(lprams);
 
 

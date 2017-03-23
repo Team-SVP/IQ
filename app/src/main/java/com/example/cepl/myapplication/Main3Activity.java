@@ -82,7 +82,7 @@ public class Main3Activity extends AppCompatActivity {
 
                 output1.moveToNext();
                 TextView textViewAnswer = (TextView) findViewById(R.id.textViewAnswer);
-                textViewAnswer.setText(output1.getString(1));
+                textViewAnswer.setText("Answer is : " + output1.getString(1));
 
                 TextView textViewAnswerDesc = (TextView) findViewById(R.id.textViewAnswerDesc);
                 textViewAnswerDesc.setText(output1.getString(2));
@@ -147,7 +147,7 @@ public class Main3Activity extends AppCompatActivity {
 
                         output1.moveToNext();
                         TextView textViewAnswer = (TextView) findViewById(R.id.textViewAnswer);
-                        textViewAnswer.setText(output1.getString(1));
+                        textViewAnswer.setText("Answer is : " + output1.getString(1));
 
                         TextView textViewAnswerDesc = (TextView) findViewById(R.id.textViewAnswerDesc);
                         textViewAnswerDesc.setText(output1.getString(2));
@@ -202,7 +202,7 @@ public class Main3Activity extends AppCompatActivity {
 
                         output1.moveToNext();
                         TextView textViewAnswer = (TextView) findViewById(R.id.textViewAnswer);
-                        textViewAnswer.setText(output1.getString(1));
+                        textViewAnswer.setText("Answer is : " + output1.getString(1));
 
                         TextView textViewAnswerDesc = (TextView) findViewById(R.id.textViewAnswerDesc);
                         textViewAnswerDesc.setText(output1.getString(2));

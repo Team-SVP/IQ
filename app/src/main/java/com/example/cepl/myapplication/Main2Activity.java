@@ -3,7 +3,10 @@ package com.example.cepl.myapplication;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.media.Image;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +22,7 @@ public class Main2Activity extends AppCompatActivity {
     // This is my Comment Parag
     DatabaseHelper mydb2;
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +68,8 @@ public class Main2Activity extends AppCompatActivity {
             btn1.setId(i+100);
             btn1.setText(output.getString(2));
             btn1.setTextColor(Color.YELLOW);
-            btn1.setBackgroundColor(Color.BLUE);
+            btn1.setBackground(getResources().getDrawable(R.drawable.img2));
+            //btn1.setBackgroundColor(Color.BLUE);
             btn1.setLayoutParams(lprams);
 
 

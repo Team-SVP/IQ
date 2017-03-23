@@ -39,13 +39,43 @@
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="match_parent" android:id="@+id/main3_layout">
     -->
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:text="Question"
+            android:ems="10"
+            android:id="@+id/editText2"
+            android:editable="false"
+            android:textIsSelectable="false"
+            android:clickable="false"
+            android:contextClickable="false"
+            android:cursorVisible="false"
+            android:freezesText="true"
+            style="@style/Widget.AppCompat.AutoCompleteTextView"
+            android:textSize="24sp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText2"
-        android:layout_alignLeft="@+id/viewButton"
-        android:layout_alignStart="@+id/viewButton"
         android:layout_marginTop="37dp">
 
         <RadioButton
@@ -53,97 +83,115 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/radioButton4"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textSize="18sp" />
 
         <RadioButton
             android:text="RadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/radioButton3"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textSize="18sp" />
 
         <RadioButton
             android:text="RadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/radioButton"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textSize="18sp" />
 
         <RadioButton
             android:text="RadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/radioButton2"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textSize="18sp" />
     </RadioGroup>
+    </TableRow>
 
-    <EditText
+
+    <TableRow >
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="none"
-        android:text="Question"
-        android:ems="10"
-        android:id="@+id/editText2"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/radioGroup"
-        android:layout_alignStart="@+id/radioGroup"
-        android:editable="false"
-        android:textIsSelectable="false"
-        android:clickable="false"
-        android:contextClickable="false"
-        android:cursorVisible="false"
-        android:freezesText="true"
-        style="@style/Widget.AppCompat.AutoCompleteTextView"
-        />
+        android:layout_height="wrap_content">
+        <!-- android:text="Next"-->
 
-    <TextView
-        android:text=""
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/textViewAnswer"
-        android:layout_toStartOf="@+id/nextButton"
-        android:layout_alignRight="@+id/editText2"
-        android:layout_alignEnd="@+id/editText2"
-        android:layout_below="@+id/viewButton" />
-    <TextView
-        android:text=""
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/textViewAnswerDesc"
-        android:layout_below="@+id/viewButton"
-        android:layout_toRightOf="@+id/radioGroup"
-        android:layout_toEndOf="@+id/radioGroup" />
-
-    <Button
-        android:text="Next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/nextButton"
-        android:layout_below="@+id/radioGroup"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="72dp" />
 
     <Button
         android:text="View Answer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:id="@+id/viewButton"
-        android:layout_alignBaseline="@+id/nextButton"
-        android:layout_alignBottom="@+id/nextButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_weight="1"
+        android:background="@android:color/holo_green_dark"
+        android:layout_alignBottom="@+id/previousButton"
+        android:layout_toRightOf="@+id/previousButton"
+        android:layout_toEndOf="@+id/previousButton"
+        />
+
+        <!-- android:text="Previous" -->
 
     <Button
-        android:text="Previous"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/previousButton"
-        android:layout_above="@+id/textViewAnswer"
-        android:layout_alignRight="@+id/textViewAnswer"
-        android:layout_alignEnd="@+id/textViewAnswer" />
-    <!-- </LinearLayout> -->
+            android:id="@+id/nextButton"
+            android:layout_weight="9923"
+            android:background="@drawable/fwd2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
 
+            android:layout_alignBottom="@+id/viewButton"
+            android:layout_toRightOf="@+id/viewButton"
+            android:layout_toEndOf="@+id/viewButton"
+            />
+
+    <Button
+
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/previousButton"
+            android:layout_weight="1"
+            android:background="@drawable/back1"
+
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+    </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewAnswer"
+                android:layout_weight="1"
+                android:textSize="30sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewAnswerDesc"
+                android:layout_weight="2"
+                android:textSize="24sp" />
+        </TableRow>
+
+        <!-- </LinearLayout> -->
+
+</TableLayout>
 
 </RelativeLayout>
 </ScrollView>
