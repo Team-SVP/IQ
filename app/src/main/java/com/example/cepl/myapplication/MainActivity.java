@@ -1,7 +1,5 @@
 package com.example.cepl.myapplication;
 
-import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -16,29 +14,15 @@ import android.content.res.Resources;
 import android.widget.EditText;
 import android.util.TypedValue;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-
 public class MainActivity extends AppCompatActivity {
-
-    //ContextWrapper cw = new ContextWrapper(getApplicationContext());
-    //String DB_PATH = cw.getFilesDir().getAbsolutePath()+ "/databases/"; //edited to databases
-    //String DB_PATH = "/data/data/com.example.cepl.myapplication/databases/";
-
-
-
+    databaseCopy dbCopy;
     DatabaseHelper mydb;
     //This is comment from Shyam
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //copyDataBase(this);
         /*
         mydb = new DatabaseHelper(this);
         Cursor output = mydb.getData();
@@ -73,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
 
+        dbCopy = new databaseCopy(this);
         mydb = new DatabaseHelper(this);
         Cursor output = mydb.getData();
         int i = 0;
