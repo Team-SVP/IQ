@@ -57,12 +57,13 @@ public class Main2Activity extends AppCompatActivity {
         //String sec_name = getIntent().getExtras().getString("Name");
         Intent intent=this.getIntent();
         final String sec_name = intent.getStringExtra("Name");
+        //Log.i("DB", sec_name);
         setTitle(sec_name);
         Cursor output = mydb2.getSubSectionData(sec_name);
         int i = 0;
         while (output.moveToNext())
         {
-            Log.i("DB", output.getString(2));
+            //Log.i("DB", output.getString(2));
 
             final Button btn1 = new Button(this);
             btn1.setId(i+100);

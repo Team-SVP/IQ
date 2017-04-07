@@ -14,6 +14,9 @@ import android.content.res.Resources;
 import android.widget.EditText;
 import android.util.TypedValue;
 
+import java.io.File;
+import java.util.Arrays;
+
 public class MainActivity extends AppCompatActivity {
     databaseCopy dbCopy;
     DatabaseHelper mydb;
@@ -57,8 +60,22 @@ public class MainActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
 
-        dbCopy = new databaseCopy(this);
         mydb = new DatabaseHelper(this);
+        Cursor table_test = mydb.tableExists();
+
+        if (table_test.getCount() == 0)
+        {
+            //Log.i("DB", "Table not exists");
+            dbCopy = new databaseCopy(this);
+        }
+
+        /*
+        File folder = new File("/data/data/com.example.cepl.myapplication/databases/");
+        File[] listOfFiles = folder.listFiles();
+        String fl = Arrays.toString(listOfFiles);
+        TextView textView2 = (TextView)findViewById(R.id.textView2);
+        textView2.setText(fl);*/
+        //mydb = new DatabaseHelper(this);
         Cursor output = mydb.getData();
         int i = 0;
         while (output.moveToNext())

@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -20,20 +21,21 @@ import java.io.OutputStream;
 
 public class databaseCopy  {
     //data/user/0/com.example.cepl.myapplication/files/databases/svp.db
-    private static String DB_PATH;
-    //private static String DB_PATH = "/data/data/com.example.cepl.myapplication/databases/";
+    //private static String DB_PATH;
+    private static String DB_PATH = "/data/data/com.example.cepl.myapplication/databases/";
     private static String DB_NAME = "svp.db";
     private SQLiteDatabase myDataBase;
 
     public databaseCopy (Context context) {
-        ContextWrapper cw = new ContextWrapper( context.getApplicationContext());
+        //ContextWrapper cw = new ContextWrapper( context.getApplicationContext());
         //databaseCopy.DB_PATH = cw.getFilesDir().getAbsolutePath()+ "/databases/"; //edited to databases
-        if(android.os.Build.VERSION.SDK_INT >= 17) {
-            databaseCopy.DB_PATH = context.getApplicationInfo().dataDir + "/databases/";
-        } else {
-            databaseCopy.DB_PATH = "/data/data/" + context.getPackageName() + "/databases/";
-        }
-        boolean dbExist = checkDataBase();
+        //if(android.os.Build.VERSION.SDK_INT >= 17) {
+          //  databaseCopy.DB_PATH = context.getApplicationInfo().dataDir + "/databases/";
+        //} else {
+          //  databaseCopy.DB_PATH = "/data/data/" + context.getPackageName() + "/databases/";
+        //}
+        //boolean dbExist = checkDataBase();
+        boolean dbExist = false;
 
         if (dbExist) {
             //do nothing - database already exist
@@ -55,8 +57,7 @@ public class databaseCopy  {
     }
 
     private void copyDataBase(Context myContext) {
-        Log.i("DB",
-                "New database is being copied to device!");
+        Log.i("DB", "New database is being copied to device!");
         byte[] buffer = new byte[1024];
         OutputStream myOutput = null;
         int length;
@@ -66,19 +67,20 @@ public class databaseCopy  {
             myInput = myContext.getAssets().open("svp.db");
             // transfer bytes from the inputfile to the
             // outputfile
-            myOutput = new FileOutputStream(databaseCopy.DB_PATH + "svp.db");
+            myOutput = new FileOutputStream(DB_PATH + "svp.db");
             while ((length = myInput.read(buffer)) > 0) {
                 myOutput.write(buffer, 0, length);
             }
             myOutput.close();
             myOutput.flush();
             myInput.close();
-            Log.i("DB",
-                    "New Database has been copied to device!");
+            Log.i("DB", "New Database has been copied to device!");
 
 
         } catch (IOException e) {
             e.printStackTrace();
+            Toast.makeText(myContext, "Error." + e,
+                    Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -88,7 +90,7 @@ public class databaseCopy  {
         //SQLiteDatabase checkDB = null;
         boolean checkDB = false;
         try{
-            String myPath = databaseCopy.DB_PATH + DB_NAME;
+            String myPath = DB_PATH + DB_NAME;
             //checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
             File f = new File(myPath);
             if(f.exists()) {
